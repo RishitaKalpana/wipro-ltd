@@ -1,0 +1,27 @@
+<div class="container">  
+    <h1>Employee Form -2 Way Data Binding</h1>  
+    <form (ngSubmit)=onSubmit() ngNativeValidate>  
+      <div>  
+        <label for="name">Name</label>  
+        <input type="text"  id="name" required  [(ngModel)]="model.name" name="nme">  
+      </div>  
+      <div>  
+        <label for="alterEgo">Department</label>  
+        <input type="text"  id="dept"  [(ngModel)]="model.dept" name="det">  
+      </div> 
+      
+      <div>  
+        <label for="power">Employee Power</label>  
+        <select id="power" required  [(ngModel)]="model.power" name="poer"> 
+          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>  
+        </select>  
+      </div>  
+
+      <input type="submit" value="Submit">
+    </form>  
+
+    <div *ngIf="submitted">
+<div><span>Name : </span>{{model.name | uppercase}}</div>
+<div><span>Department: </span>{{model.dept}}</div>
+<div><span>Power :</span>{{model.power}}</div>
+</div>  
